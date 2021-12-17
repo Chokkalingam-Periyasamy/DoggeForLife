@@ -9,8 +9,6 @@ interface ApiInterface {
     @POST("login")
     fun postData(@Body users:UserData): Call<Login>
 
-    @DELETE("users/me")
-    fun deleteUser(@Header("Authorization") token: String):Call<Void>
 }
 
 interface PetsApiService {
@@ -28,4 +26,9 @@ interface ChangeEmailApiService{
     @POST("/doggeforlife-mobile/users/me/email")
     fun ChangeEmail(@Header("Authorization") token: String, @Body user:EmailUpdate ):Call<Void>
 
+}
+interface  DeleteEmail{
+
+    @DELETE("users/me")
+    fun deleteUser(@Header("Authorization") token: String):Call<Void>
 }

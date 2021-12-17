@@ -51,11 +51,11 @@ class LoginActivity : AppCompatActivity() {
             val user = UserData(email.toString(), password.toString())
             val email1=sharedPreferences.getString("email",null)
 
-
+//            val profileIntent=Intent(this@LoginActivity,ProfileActivity::class.java)
             CoroutineScope(Dispatchers.IO).launch {
                 val sampleApplication = application as LoginApplication
                 val service = sampleApplication.loginService
-                val profileIntent=Intent(this@LoginActivity,ProfileActivity::class.java)
+
                 service.postData(user).enqueue(object : Callback<Login?> {
                     override fun onResponse(
                         call: Call<Login?>,
@@ -67,8 +67,8 @@ class LoginActivity : AppCompatActivity() {
                             sessionManager.saveAuthToken(response.body()?.token)
                             sessionManager.saveEmail(response.body()?.email)
                             sessionManager.saveMember(response.body()!!.memberSince)
-                            profileIntent.putExtra("string",response.body()?.email)
-                            intent.putExtra("string",response.body()?.token)
+//                            profileIntent.putExtra("string",response.body()?.email)
+//                            intent.putExtra("string",response.body()?.token)
 
                             startActivity(dishesintent)
 
