@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Profile" android:id="@+id/nav_profile"/>
+    <item android:title="Im interested in" android:id="@+id/nav_interest" />
+    <item android:title="Other users" android:id="@+id/nav_otherusers"/>
+</menu>
